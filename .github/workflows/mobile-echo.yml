@@ -1,0 +1,40 @@
+name: Mobile echo builds
+on:
+  push:
+    branches: [travel-local-first]
+    paths: ['android/**', 'ios/**', '.github/workflows/mobile-echo.yml']
+  pull_request:
+    paths: ['android/**', 'ios/**', '.github/workflows/mobile-echo.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+      - run: gradle --no-daemon -p android assembleDebug lintDebug
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sinai-echo-android-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+  ios:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: brew install xcodegen
+      - run: cd ios && xcodegen generate
+      - run: xcodebuild -project ios/SinaiEcho.xcodeproj -scheme SinaiEcho -sdk iphonesimulator -configuration Debug -derivedDataPath build/ios CODE_SIGNING_ALLOWED=NO build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sinai-echo-ios-source
+          path: ios/
