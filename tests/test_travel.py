@@ -13,6 +13,10 @@ async def test_local_preparation_and_missing_resources(tmp_path):
     prompt = helper.build_prompt('JP', 'How does this door lock work?')
     assert '25. Travel Etiquette' in prompt
     assert 'W001' in prompt and 'S090' in prompt
+    assert 'Every completed language entry must include pronunciation help' in prompt
+    assert 'standard romanization/transliteration' in prompt
+    assert 'IPA' in prompt and 'English-readable phonetic respelling' in prompt
+    assert 'optional familiar-sound/helper-word mnemonic' in prompt
     with pytest.raises(ValueError):
         helper.build_prompt('../', 'q')
 
