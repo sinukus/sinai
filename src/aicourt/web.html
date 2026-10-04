@@ -1,0 +1,13 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Travel helper</title>
+<style>body{font:18px system-ui;max-width:760px;margin:40px auto;padding:20px;background:#f6f5f1;color:#202925}textarea{box-sizing:border-box;width:100%;font:inherit;padding:14px}button{font:inherit;padding:10px 22px;margin:10px 0}article{white-space:pre-wrap;background:white;padding:18px;margin:12px 0;border-radius:12px}small{display:block;color:#53645c}</style>
+<h1>Travel helper</h1><p>Start with “I am going to Japan” or “I am going to Vietnam”, then ask about local customs or unfamiliar controls.</p><small>Runs against your local model. Native offline speech and translation packs are not connected yet.</small><section id="conversation" aria-live="polite"></section><form><textarea aria-label="Your message" required rows="3"></textarea><button>Send</button></form>
+<script>
+const form=document.querySelector('form'), input=document.querySelector('textarea'), button=document.querySelector('button'), log=document.querySelector('#conversation');
+function entry(text){const e=document.createElement('article');e.textContent=text;log.append(e);return e;}
+form.onsubmit=async(e)=>{e.preventDefault();const text=input.value;entry(text);input.value='';button.disabled=true;const output=entry('');
+try{const response=await fetch('/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text})});if(!response.ok)throw Error('Request failed: '+response.status);
+const reader=response.body.getReader(),decoder=new TextDecoder();let pending='';
+function event(line){if(!line)return;const value=JSON.parse(line);if(value.type==='delta')output.textContent+=value.text;if(value.type==='error')output.textContent+='\nError: '+value.text;if(value.type==='destination')output.textContent='Prepared '+value.state.destination.country+' locally. Travel and English language templates are ready. Speech and translation resources still need native adapters.';}
+while(true){const {value,done}=await reader.read();pending+=decoder.decode(value,{stream:!done});let split;while((split=pending.indexOf('\n'))>=0){event(pending.slice(0,split));pending=pending.slice(split+1);}if(done){event(pending);break;}}
+}catch(error){output.textContent+='\n'+error.message;}finally{button.disabled=false;input.focus();}};
+</script></html>
