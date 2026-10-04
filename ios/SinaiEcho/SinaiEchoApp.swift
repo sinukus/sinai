@@ -90,6 +90,7 @@ struct EchoView: View {
     @StateObject private var echo = EchoController()
     @State private var starting = false
     @State private var showingResources = false
+    @State private var showingTranslation = false
     @Environment(\.scenePhase) private var phase
     var body: some View {
         VStack(alignment: .leading, spacing: 18) {
@@ -100,9 +101,11 @@ struct EchoView: View {
             Button("Finish recording") { echo.finish() }.disabled(!echo.listening)
             Button("Read aloud") { echo.speak() }.disabled(echo.listening)
             Button("Stop audio") { echo.stopAudio() }
+            if #available(iOS 18.0, *) { Button("Translate transcript / template") { showingTranslation = true } }
             Button("Travel and language resources") { showingResources = true }
             Spacer()
         }.padding()
+        .sheet(isPresented: $showingTranslation) { if #available(iOS 18.0, *) { LocalTranslationView(source: echo.transcript) } }
         .sheet(isPresented: $showingResources) { ResourceView() }
         .onChange(of: phase) { _, state in if state != .active { echo.cancel() } }
     }

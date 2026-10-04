@@ -4,3 +4,5 @@ android {
  compileSdk 35
  defaultConfig { applicationId 'com.sinukus.sinai.echo'; minSdk 31; targetSdk 35; versionCode 1; versionName '0.1' }
 }
+
+dependencies { implementation 'com.google.mlkit:translate:17.0.3' }

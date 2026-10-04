@@ -33,6 +33,7 @@ public class MainActivity extends Activity implements RecognitionListener {
   button(layout,"Finish recording",v -> { if(recognizer != null && listening) recognizer.stopListening(); });
   button(layout,"Read aloud",v -> speak());
   button(layout,"Stop audio",v -> { if(tts != null) tts.stop(); });
+  button(layout,"Translate transcript / template", v -> startActivity(new Intent(this, TranslationActivity.class).putExtra("source", transcript.getText().toString())));
   button(layout,"Travel and language resources", v -> resources());
   setContentView(layout);
   if(state != null) transcript.setText(state.getString("transcript", ""));
