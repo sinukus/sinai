@@ -5,7 +5,7 @@ from urllib.request import Request, urlopen
 from urllib.error import HTTPError
 import pytest
 
-from aicourt.local import OllamaClient
+from aicourt.local import OllamaClient, LocalFirstRouter
 from aicourt.memory import LocalMemory
 from aicourt.server import TravelSession, make_server
 
@@ -101,3 +101,16 @@ def test_model_failure_is_not_saved_as_answer(tmp_path):
     with pytest.raises(OSError):
         list(session.respond('Question'))
     assert session.memory.get('history') == []
+
+
+def test_local_first_router_never_silently_falls_back():
+    class Transport:
+        def __init__(self, name): self.name = name
+        def stream(self, messages): yield self.name
+    local, cloud = Transport('local'), Transport('cloud')
+    assert list(LocalFirstRouter(local, cloud).stream([], require_local=True)) == ['local']
+    assert list(LocalFirstRouter(None, cloud).stream([], allow_cloud=True)) == ['cloud']
+    with pytest.raises(RuntimeError, match='local model is required'):
+        list(LocalFirstRouter(None, cloud).stream([], require_local=True, allow_cloud=True))
+    with pytest.raises(RuntimeError, match='No permitted model transport'):
+        list(LocalFirstRouter(None, cloud).stream([]))
