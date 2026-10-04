@@ -28,3 +28,25 @@ class OllamaClient:
                 if event.get('done'):
                     return
         raise RuntimeError('Model stream ended without a completion event')
+
+
+class LocalFirstRouter:
+    """Route private/local-only work to a verified local transport.
+
+    Cloud use is opt-in per call; there is never an implicit fallback.
+    """
+    def __init__(self, local=None, cloud=None):
+        self.local = local
+        self.cloud = cloud
+
+    def route(self, *, require_local=False, allow_cloud=False):
+        if self.local is not None:
+            return self.local
+        if require_local:
+            raise RuntimeError('A local model is required but no local transport is configured')
+        if allow_cloud and self.cloud is not None:
+            return self.cloud
+        raise RuntimeError('No permitted model transport is available')
+
+    def stream(self, messages, *, require_local=False, allow_cloud=False):
+        return self.route(require_local=require_local, allow_cloud=allow_cloud).stream(messages)
