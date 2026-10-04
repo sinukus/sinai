@@ -32,3 +32,11 @@ Open `http://127.0.0.1:8765`. Enter a destination statement, then a question. Th
 The app uses the configured local model directly; it bypasses the legacy multi-model Court orchestration. History and destination selection persist in atomic JSON files. SQLite is no longer used by LocalMemory; existing databases are left untouched and not migrated automatically. The server binds to loopback only and rejects cross-site browser requests. It is a single-user desktop prototype, not an exposed network service or a native iOS/Android app.
 
 The previous missing-backend limitation is addressed by the real Ollama transport. Native mobile speech, translation downloads, photo input and sourced guidance remain unfinished. Tests cover a real HTTP streaming fixture, gateway requests, state persistence, cross-site rejection and failed generation. They do not verify the quality of a downloaded model or claim device-level voice functionality.
+
+## Voice UI
+
+The responsive browser UI now includes Voice, editable transcription, Read aloud, automatic spoken replies and Stop audio. Recognition requests on-device processing only, verifies offline pack availability, and requests pack installation where supported. It never silently enables online recognition. Speech playback selects only an installed local-service voice. Unsupported browsers retain text input and show the limitation.
+
+Browser on-device speech APIs have uneven support. This UI has not been verified on an Android phone or iPad. A phone's localhost refers to the phone itself; the current loopback desktop server cannot be opened from another device. Native mobile packaging or a separately secured device connection is still required for a phone demo. This change does not claim full offline phone functionality.
+
+Speech API references: https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/processLocally and https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisVoice/localService.
