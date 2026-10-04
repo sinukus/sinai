@@ -7,7 +7,7 @@ from pathlib import Path
 from threading import RLock
 from importlib.resources import files
 
-from .local import OllamaClient
+from .local import OllamaClient, LocalFirstRouter
 from .memory import LocalMemory
 from .travel import TravelHelper
 
@@ -16,7 +16,7 @@ class TravelSession:
     def __init__(self, root, client):
         self.helper = TravelHelper(Path(root) / 'destinations')
         self.memory = LocalMemory(Path(root) / 'session.json')
-        self.client = client
+        self.client = client if isinstance(client, LocalFirstRouter) else LocalFirstRouter(local=client)
         self.lock = RLock()
 
     def respond(self, text):
@@ -39,7 +39,7 @@ class TravelSession:
             history = self.memory.get('history') or []
             messages = [*history[-12:], {'role': 'user', 'content': prompt}]
             answer = ''
-            for delta in self.client.stream(messages):
+            for delta in self.client.stream(messages, require_local=True):
                 answer += delta
                 yield {'type': 'delta', 'text': delta}
             self.memory.put('history', [*history[-10:], {'role': 'user', 'content': text},
