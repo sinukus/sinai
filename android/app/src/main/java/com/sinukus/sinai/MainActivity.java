@@ -2,6 +2,10 @@ package com.sinukus.sinai;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
+import org.json.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -29,6 +33,7 @@ public class MainActivity extends Activity implements RecognitionListener {
   button(layout,"Finish recording",v -> { if(recognizer != null && listening) recognizer.stopListening(); });
   button(layout,"Read aloud",v -> speak());
   button(layout,"Stop audio",v -> { if(tts != null) tts.stop(); });
+  button(layout,"Travel and language resources", v -> resources());
   setContentView(layout);
   if(state != null) transcript.setText(state.getString("transcript", ""));
   tts = new TextToSpeech(this, code -> {
@@ -41,6 +46,30 @@ public class MainActivity extends Activity implements RecognitionListener {
    }
    status.setText(ready ? "Ready. Use airplane mode to verify offline operation." : "No installed offline English voice. Install a voice in Android text-to-speech settings first.");
   });
+ }
+ private void resources() {
+  try (InputStream stream = getAssets().open("travel-resources.json")) {
+   ByteArrayOutputStream bytes = new ByteArrayOutputStream(); byte[] buffer = new byte[4096]; int n;
+   while((n=stream.read(buffer))!=-1) bytes.write(buffer,0,n);
+   JSONObject data = new JSONObject(new String(bytes.toByteArray(), StandardCharsets.UTF_8));
+   JSONArray packs=data.getJSONArray("packs");
+   String[] choices=new String[packs.length()+2]; choices[0]="Travel template"; choices[1]="Language template (180 English entries)";
+   for(int i=0;i<packs.length();i++) choices[i+2]=packs.getJSONObject(i).getString("country");
+   new AlertDialog.Builder(this).setTitle("Offline resources").setItems(choices,(dialog,index)-> {
+    try {
+     if(index<2) showResource(choices[index], data.getString(index==0?"travel_template":"language_template"));
+     else {
+      JSONObject pack=packs.getJSONObject(index-2);
+      getPreferences(MODE_PRIVATE).edit().putString("destination",pack.getString("code")).apply();
+      showResource(pack.getString("country"), "Selected destination saved on device.\nTranslation and target-language speech assets are not connected yet.\n\n"+pack.toString(2));
+     }
+    } catch(JSONException e) { status.setText("Invalid resource: "+e.getMessage()); }
+   }).show();
+  } catch(Exception e) { status.setText("Could not load bundled resources: "+e.getMessage()); }
+ }
+ private void showResource(String title,String text) {
+  ScrollView scroll=new ScrollView(this); TextView body=new TextView(this); body.setText(text); body.setPadding(24,24,24,24); body.setTextIsSelectable(true); scroll.addView(body);
+  new AlertDialog.Builder(this).setTitle(title).setView(scroll).setPositiveButton("Close",null).show();
  }
  private Button button(LinearLayout parent,String label,View.OnClickListener action) { Button b=new Button(this); b.setText(label); b.setOnClickListener(action); parent.addView(b); return b; }
  private void start() {

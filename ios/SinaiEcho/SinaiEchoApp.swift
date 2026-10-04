@@ -89,6 +89,7 @@ final class EchoController: ObservableObject {
 struct EchoView: View {
     @StateObject private var echo = EchoController()
     @State private var starting = false
+    @State private var showingResources = false
     @Environment(\.scenePhase) private var phase
     var body: some View {
         VStack(alignment: .leading, spacing: 18) {
@@ -99,8 +100,48 @@ struct EchoView: View {
             Button("Finish recording") { echo.finish() }.disabled(!echo.listening)
             Button("Read aloud") { echo.speak() }.disabled(echo.listening)
             Button("Stop audio") { echo.stopAudio() }
+            Button("Travel and language resources") { showingResources = true }
             Spacer()
         }.padding()
+        .sheet(isPresented: $showingResources) { ResourceView() }
         .onChange(of: phase) { _, state in if state != .active { echo.cancel() } }
+    }
+}
+
+struct TravelResources: Decodable {
+    struct Pack: Decodable, Identifiable {
+        let code: String
+        let country: String
+        let locales: [String]
+        var id: String { code }
+    }
+    let language_template: String
+    let travel_template: String
+    let packs: [Pack]
+}
+struct ResourceView: View {
+    @AppStorage("destination") private var destination = ""
+    @Environment(\.dismiss) private var dismiss
+    private let resources: TravelResources? = {
+        guard let url = Bundle.main.url(forResource: "travel-resources", withExtension: "json"),
+              let data = try? Data(contentsOf: url) else { return nil }
+        return try? JSONDecoder().decode(TravelResources.self, from: data)
+    }()
+    var body: some View {
+        NavigationStack {
+            List {
+                if let resources {
+                    Section("Destination · saved on device") {
+                        ForEach(resources.packs) { pack in
+                            Button(pack.country + (destination == pack.code ? " ✓" : "")) { destination = pack.code }
+                        }
+                        Text("Translation and target-language speech assets are not connected yet.")
+                    }
+                    NavigationLink("Travel template") { ScrollView { Text(resources.travel_template).textSelection(.enabled).padding() } }
+                    NavigationLink("Language template · 180 English entries") { ScrollView { Text(resources.language_template).textSelection(.enabled).padding() } }
+                } else { Text("Bundled resources could not be loaded.") }
+            }.navigationTitle("Offline resources")
+             .toolbar { Button("Close") { dismiss() } }
+        }
     }
 }
