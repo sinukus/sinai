@@ -1,0 +1,766 @@
+{
+  "schema_version": 1,
+  "language_entries": [
+    {
+      "id": "W001",
+      "english": "Yes"
+    },
+    {
+      "id": "W002",
+      "english": "No"
+    },
+    {
+      "id": "W003",
+      "english": "Please"
+    },
+    {
+      "id": "W004",
+      "english": "Thank you"
+    },
+    {
+      "id": "W005",
+      "english": "Hello"
+    },
+    {
+      "id": "W006",
+      "english": "Goodbye"
+    },
+    {
+      "id": "W007",
+      "english": "Sorry"
+    },
+    {
+      "id": "W008",
+      "english": "Excuse me"
+    },
+    {
+      "id": "W009",
+      "english": "Up"
+    },
+    {
+      "id": "W010",
+      "english": "Down"
+    },
+    {
+      "id": "W011",
+      "english": "Left"
+    },
+    {
+      "id": "W012",
+      "english": "Right"
+    },
+    {
+      "id": "W013",
+      "english": "Here"
+    },
+    {
+      "id": "W014",
+      "english": "There"
+    },
+    {
+      "id": "W015",
+      "english": "Water"
+    },
+    {
+      "id": "W016",
+      "english": "Beer"
+    },
+    {
+      "id": "W017",
+      "english": "Coffee"
+    },
+    {
+      "id": "W018",
+      "english": "Tea"
+    },
+    {
+      "id": "W019",
+      "english": "Food"
+    },
+    {
+      "id": "W020",
+      "english": "Toilet"
+    },
+    {
+      "id": "W021",
+      "english": "One"
+    },
+    {
+      "id": "W022",
+      "english": "Two"
+    },
+    {
+      "id": "W023",
+      "english": "Three"
+    },
+    {
+      "id": "W024",
+      "english": "Four"
+    },
+    {
+      "id": "W025",
+      "english": "Five"
+    },
+    {
+      "id": "W026",
+      "english": "Ten"
+    },
+    {
+      "id": "W027",
+      "english": "Today"
+    },
+    {
+      "id": "W028",
+      "english": "Tomorrow"
+    },
+    {
+      "id": "W029",
+      "english": "Help"
+    },
+    {
+      "id": "W030",
+      "english": "Stop"
+    },
+    {
+      "id": "P001",
+      "english": "This one"
+    },
+    {
+      "id": "P002",
+      "english": "That one"
+    },
+    {
+      "id": "P003",
+      "english": "Over here"
+    },
+    {
+      "id": "P004",
+      "english": "Over there"
+    },
+    {
+      "id": "P005",
+      "english": "Straight ahead"
+    },
+    {
+      "id": "P006",
+      "english": "Turn left"
+    },
+    {
+      "id": "P007",
+      "english": "Turn right"
+    },
+    {
+      "id": "P008",
+      "english": "Go upstairs"
+    },
+    {
+      "id": "P009",
+      "english": "Go downstairs"
+    },
+    {
+      "id": "P010",
+      "english": "Near here"
+    },
+    {
+      "id": "P011",
+      "english": "Far away"
+    },
+    {
+      "id": "P012",
+      "english": "How much?"
+    },
+    {
+      "id": "P013",
+      "english": "Too expensive"
+    },
+    {
+      "id": "P014",
+      "english": "The total price"
+    },
+    {
+      "id": "P015",
+      "english": "Cash payment"
+    },
+    {
+      "id": "P016",
+      "english": "Card payment"
+    },
+    {
+      "id": "P017",
+      "english": "Small change"
+    },
+    {
+      "id": "P018",
+      "english": "The receipt"
+    },
+    {
+      "id": "P019",
+      "english": "One ticket"
+    },
+    {
+      "id": "P020",
+      "english": "One way"
+    },
+    {
+      "id": "P021",
+      "english": "Next train"
+    },
+    {
+      "id": "P022",
+      "english": "Last train"
+    },
+    {
+      "id": "P023",
+      "english": "This platform"
+    },
+    {
+      "id": "P024",
+      "english": "The bus stop"
+    },
+    {
+      "id": "P025",
+      "english": "The taxi stand"
+    },
+    {
+      "id": "P026",
+      "english": "The ferry terminal"
+    },
+    {
+      "id": "P027",
+      "english": "The entrance"
+    },
+    {
+      "id": "P028",
+      "english": "The exit"
+    },
+    {
+      "id": "P029",
+      "english": "My reservation"
+    },
+    {
+      "id": "P030",
+      "english": "My passport"
+    },
+    {
+      "id": "P031",
+      "english": "My room"
+    },
+    {
+      "id": "P032",
+      "english": "The room key"
+    },
+    {
+      "id": "P033",
+      "english": "Check-in time"
+    },
+    {
+      "id": "P034",
+      "english": "Check-out time"
+    },
+    {
+      "id": "P035",
+      "english": "Hot water"
+    },
+    {
+      "id": "P036",
+      "english": "Cold water"
+    },
+    {
+      "id": "P037",
+      "english": "Drinking water"
+    },
+    {
+      "id": "P038",
+      "english": "No sugar"
+    },
+    {
+      "id": "P039",
+      "english": "No ice"
+    },
+    {
+      "id": "P040",
+      "english": "Without milk"
+    },
+    {
+      "id": "P041",
+      "english": "Not spicy"
+    },
+    {
+      "id": "P042",
+      "english": "A little spicy"
+    },
+    {
+      "id": "P043",
+      "english": "One coffee, please"
+    },
+    {
+      "id": "P044",
+      "english": "One beer, please"
+    },
+    {
+      "id": "P045",
+      "english": "The menu, please"
+    },
+    {
+      "id": "P046",
+      "english": "The bill, please"
+    },
+    {
+      "id": "P047",
+      "english": "Takeaway, please"
+    },
+    {
+      "id": "P048",
+      "english": "A table for two"
+    },
+    {
+      "id": "P049",
+      "english": "No mussels"
+    },
+    {
+      "id": "P050",
+      "english": "No oysters"
+    },
+    {
+      "id": "P051",
+      "english": "A pharmacy"
+    },
+    {
+      "id": "P052",
+      "english": "A hospital"
+    },
+    {
+      "id": "P053",
+      "english": "An ambulance"
+    },
+    {
+      "id": "P054",
+      "english": "The police"
+    },
+    {
+      "id": "P055",
+      "english": "My phone"
+    },
+    {
+      "id": "P056",
+      "english": "The Wi-Fi password"
+    },
+    {
+      "id": "P057",
+      "english": "A charging socket"
+    },
+    {
+      "id": "P058",
+      "english": "Laundry pickup"
+    },
+    {
+      "id": "P059",
+      "english": "Return delivery"
+    },
+    {
+      "id": "P060",
+      "english": "A luggage locker"
+    },
+    {
+      "id": "S001",
+      "english": "Do you speak English?"
+    },
+    {
+      "id": "S002",
+      "english": "I do not understand."
+    },
+    {
+      "id": "S003",
+      "english": "Please speak more slowly."
+    },
+    {
+      "id": "S004",
+      "english": "Could you repeat that?"
+    },
+    {
+      "id": "S005",
+      "english": "Could you write that down?"
+    },
+    {
+      "id": "S006",
+      "english": "What does this word mean?"
+    },
+    {
+      "id": "S007",
+      "english": "How do I say this politely?"
+    },
+    {
+      "id": "S008",
+      "english": "Is this the right way to greet someone?"
+    },
+    {
+      "id": "S009",
+      "english": "Thank you for helping me."
+    },
+    {
+      "id": "S010",
+      "english": "I am visiting your country."
+    },
+    {
+      "id": "S011",
+      "english": "How much does this cost?"
+    },
+    {
+      "id": "S012",
+      "english": "Is that the price for one person?"
+    },
+    {
+      "id": "S013",
+      "english": "Is tax included in the price?"
+    },
+    {
+      "id": "S014",
+      "english": "Can I pay by card?"
+    },
+    {
+      "id": "S015",
+      "english": "Can I pay in cash?"
+    },
+    {
+      "id": "S016",
+      "english": "Could I have a receipt, please?"
+    },
+    {
+      "id": "S017",
+      "english": "Do you have change for this note?"
+    },
+    {
+      "id": "S018",
+      "english": "Where is the nearest ATM?"
+    },
+    {
+      "id": "S019",
+      "english": "Is there an extra fee?"
+    },
+    {
+      "id": "S020",
+      "english": "I would like to buy this."
+    },
+    {
+      "id": "S021",
+      "english": "Where can I buy a ticket?"
+    },
+    {
+      "id": "S022",
+      "english": "I need a one-way ticket."
+    },
+    {
+      "id": "S023",
+      "english": "Does this train stop at my destination?"
+    },
+    {
+      "id": "S024",
+      "english": "Which platform should I use?"
+    },
+    {
+      "id": "S025",
+      "english": "When does the next train leave?"
+    },
+    {
+      "id": "S026",
+      "english": "When does the last train leave?"
+    },
+    {
+      "id": "S027",
+      "english": "Do I need to change trains?"
+    },
+    {
+      "id": "S028",
+      "english": "Where should I get off?"
+    },
+    {
+      "id": "S029",
+      "english": "Is this seat reserved?"
+    },
+    {
+      "id": "S030",
+      "english": "Can I bring my luggage on board?"
+    },
+    {
+      "id": "S031",
+      "english": "Where is the nearest bus stop?"
+    },
+    {
+      "id": "S032",
+      "english": "Does this bus go to the city centre?"
+    },
+    {
+      "id": "S033",
+      "english": "Please tell me when we reach my stop."
+    },
+    {
+      "id": "S034",
+      "english": "Where can I find a taxi?"
+    },
+    {
+      "id": "S035",
+      "english": "Please take me to this address."
+    },
+    {
+      "id": "S036",
+      "english": "Can you use the meter, please?"
+    },
+    {
+      "id": "S037",
+      "english": "Where does the ferry leave from?"
+    },
+    {
+      "id": "S038",
+      "english": "Is the ferry running today?"
+    },
+    {
+      "id": "S039",
+      "english": "Is there a lift to the platform?"
+    },
+    {
+      "id": "S040",
+      "english": "Which exit is closest to this address?"
+    },
+    {
+      "id": "S041",
+      "english": "I have a reservation under this name."
+    },
+    {
+      "id": "S042",
+      "english": "Can I check in now?"
+    },
+    {
+      "id": "S043",
+      "english": "Can I leave my bags here?"
+    },
+    {
+      "id": "S044",
+      "english": "What time is check-out?"
+    },
+    {
+      "id": "S045",
+      "english": "How do I open this door?"
+    },
+    {
+      "id": "S046",
+      "english": "How do I lock the door from inside?"
+    },
+    {
+      "id": "S047",
+      "english": "How does this key work?"
+    },
+    {
+      "id": "S048",
+      "english": "How do I switch on the hot water?"
+    },
+    {
+      "id": "S049",
+      "english": "How do I use this air conditioner?"
+    },
+    {
+      "id": "S050",
+      "english": "Is there a refrigerator in the room?"
+    },
+    {
+      "id": "S051",
+      "english": "What is the Wi-Fi password?"
+    },
+    {
+      "id": "S052",
+      "english": "The internet connection is not working."
+    },
+    {
+      "id": "S053",
+      "english": "Where can I charge my phone?"
+    },
+    {
+      "id": "S054",
+      "english": "Can you help me understand this control?"
+    },
+    {
+      "id": "S055",
+      "english": "Could you show me how this works?"
+    },
+    {
+      "id": "S056",
+      "english": "I would like a table for two."
+    },
+    {
+      "id": "S057",
+      "english": "Could I see the menu, please?"
+    },
+    {
+      "id": "S058",
+      "english": "What do you recommend?"
+    },
+    {
+      "id": "S059",
+      "english": "Does this contain mussels?"
+    },
+    {
+      "id": "S060",
+      "english": "I am allergic to mussels."
+    },
+    {
+      "id": "S061",
+      "english": "Please do not add oysters."
+    },
+    {
+      "id": "S062",
+      "english": "Does this contain added sugar?"
+    },
+    {
+      "id": "S063",
+      "english": "Could I have it without sugar?"
+    },
+    {
+      "id": "S064",
+      "english": "Could I have drinking water, please?"
+    },
+    {
+      "id": "S065",
+      "english": "Could I have a coffee without milk?"
+    },
+    {
+      "id": "S066",
+      "english": "I would like a beer, please."
+    },
+    {
+      "id": "S067",
+      "english": "Could you make it less spicy?"
+    },
+    {
+      "id": "S068",
+      "english": "Can I order this to take away?"
+    },
+    {
+      "id": "S069",
+      "english": "Could I have the bill, please?"
+    },
+    {
+      "id": "S070",
+      "english": "Is service included in the bill?"
+    },
+    {
+      "id": "S071",
+      "english": "Where is the toilet?"
+    },
+    {
+      "id": "S072",
+      "english": "Is it customary to tip here?"
+    },
+    {
+      "id": "S073",
+      "english": "Should I take my shoes off?"
+    },
+    {
+      "id": "S074",
+      "english": "Is it okay to take a photograph here?"
+    },
+    {
+      "id": "S075",
+      "english": "Where am I allowed to smoke?"
+    },
+    {
+      "id": "S076",
+      "english": "Is it okay to drink alcohol here?"
+    },
+    {
+      "id": "S077",
+      "english": "Which bin should I use for this?"
+    },
+    {
+      "id": "S078",
+      "english": "Where should I queue?"
+    },
+    {
+      "id": "S079",
+      "english": "Is this area open to visitors?"
+    },
+    {
+      "id": "S080",
+      "english": "Is there anything I should avoid doing here?"
+    },
+    {
+      "id": "S081",
+      "english": "Do you offer laundry pickup and delivery?"
+    },
+    {
+      "id": "S082",
+      "english": "When will my laundry be returned?"
+    },
+    {
+      "id": "S083",
+      "english": "Where can I collect this parcel?"
+    },
+    {
+      "id": "S084",
+      "english": "How do I open this parcel locker?"
+    },
+    {
+      "id": "S085",
+      "english": "Where can I store my luggage?"
+    },
+    {
+      "id": "S086",
+      "english": "I need medical help."
+    },
+    {
+      "id": "S087",
+      "english": "Please call an ambulance."
+    },
+    {
+      "id": "S088",
+      "english": "Where is the nearest pharmacy?"
+    },
+    {
+      "id": "S089",
+      "english": "I have lost my passport."
+    },
+    {
+      "id": "S090",
+      "english": "Please contact the police."
+    }
+  ],
+  "language_template": "# Language Template\n\nRecreated on 2026-10-05 from Stephen Wilson's confirmed requirements; this is a new canonical candidate, not a recovered historical copy.\n\nUse for any destination language. Preserve all IDs and counts. Add target-language text, practical pronunciation, and literal meaning when it helps explain a difference. Keep simple items short. Adapt politeness to local use without changing intent. Explain region-specific variants rather than assuming one country has one language. Allergy entries must retain their precise meaning.\n\n## 30 basic words\n\n| ID | English |\n|---|---|\n| W001 | Yes |\n| W002 | No |\n| W003 | Please |\n| W004 | Thank you |\n| W005 | Hello |\n| W006 | Goodbye |\n| W007 | Sorry |\n| W008 | Excuse me |\n| W009 | Up |\n| W010 | Down |\n| W011 | Left |\n| W012 | Right |\n| W013 | Here |\n| W014 | There |\n| W015 | Water |\n| W016 | Beer |\n| W017 | Coffee |\n| W018 | Tea |\n| W019 | Food |\n| W020 | Toilet |\n| W021 | One |\n| W022 | Two |\n| W023 | Three |\n| W024 | Four |\n| W025 | Five |\n| W026 | Ten |\n| W027 | Today |\n| W028 | Tomorrow |\n| W029 | Help |\n| W030 | Stop |\n\n## 60 practical phrases\n\n| ID | English |\n|---|---|\n| P001 | This one |\n| P002 | That one |\n| P003 | Over here |\n| P004 | Over there |\n| P005 | Straight ahead |\n| P006 | Turn left |\n| P007 | Turn right |\n| P008 | Go upstairs |\n| P009 | Go downstairs |\n| P010 | Near here |\n| P011 | Far away |\n| P012 | How much? |\n| P013 | Too expensive |\n| P014 | The total price |\n| P015 | Cash payment |\n| P016 | Card payment |\n| P017 | Small change |\n| P018 | The receipt |\n| P019 | One ticket |\n| P020 | One way |\n| P021 | Next train |\n| P022 | Last train |\n| P023 | This platform |\n| P024 | The bus stop |\n| P025 | The taxi stand |\n| P026 | The ferry terminal |\n| P027 | The entrance |\n| P028 | The exit |\n| P029 | My reservation |\n| P030 | My passport |\n| P031 | My room |\n| P032 | The room key |\n| P033 | Check-in time |\n| P034 | Check-out time |\n| P035 | Hot water |\n| P036 | Cold water |\n| P037 | Drinking water |\n| P038 | No sugar |\n| P039 | No ice |\n| P040 | Without milk |\n| P041 | Not spicy |\n| P042 | A little spicy |\n| P043 | One coffee, please |\n| P044 | One beer, please |\n| P045 | The menu, please |\n| P046 | The bill, please |\n| P047 | Takeaway, please |\n| P048 | A table for two |\n| P049 | No mussels |\n| P050 | No oysters |\n| P051 | A pharmacy |\n| P052 | A hospital |\n| P053 | An ambulance |\n| P054 | The police |\n| P055 | My phone |\n| P056 | The Wi-Fi password |\n| P057 | A charging socket |\n| P058 | Laundry pickup |\n| P059 | Return delivery |\n| P060 | A luggage locker |\n\n## 90 complete transactional sentences\n\n| ID | English |\n|---|---|\n| S001 | Do you speak English? |\n| S002 | I do not understand. |\n| S003 | Please speak more slowly. |\n| S004 | Could you repeat that? |\n| S005 | Could you write that down? |\n| S006 | What does this word mean? |\n| S007 | How do I say this politely? |\n| S008 | Is this the right way to greet someone? |\n| S009 | Thank you for helping me. |\n| S010 | I am visiting your country. |\n| S011 | How much does this cost? |\n| S012 | Is that the price for one person? |\n| S013 | Is tax included in the price? |\n| S014 | Can I pay by card? |\n| S015 | Can I pay in cash? |\n| S016 | Could I have a receipt, please? |\n| S017 | Do you have change for this note? |\n| S018 | Where is the nearest ATM? |\n| S019 | Is there an extra fee? |\n| S020 | I would like to buy this. |\n| S021 | Where can I buy a ticket? |\n| S022 | I need a one-way ticket. |\n| S023 | Does this train stop at my destination? |\n| S024 | Which platform should I use? |\n| S025 | When does the next train leave? |\n| S026 | When does the last train leave? |\n| S027 | Do I need to change trains? |\n| S028 | Where should I get off? |\n| S029 | Is this seat reserved? |\n| S030 | Can I bring my luggage on board? |\n| S031 | Where is the nearest bus stop? |\n| S032 | Does this bus go to the city centre? |\n| S033 | Please tell me when we reach my stop. |\n| S034 | Where can I find a taxi? |\n| S035 | Please take me to this address. |\n| S036 | Can you use the meter, please? |\n| S037 | Where does the ferry leave from? |\n| S038 | Is the ferry running today? |\n| S039 | Is there a lift to the platform? |\n| S040 | Which exit is closest to this address? |\n| S041 | I have a reservation under this name. |\n| S042 | Can I check in now? |\n| S043 | Can I leave my bags here? |\n| S044 | What time is check-out? |\n| S045 | How do I open this door? |\n| S046 | How do I lock the door from inside? |\n| S047 | How does this key work? |\n| S048 | How do I switch on the hot water? |\n| S049 | How do I use this air conditioner? |\n| S050 | Is there a refrigerator in the room? |\n| S051 | What is the Wi-Fi password? |\n| S052 | The internet connection is not working. |\n| S053 | Where can I charge my phone? |\n| S054 | Can you help me understand this control? |\n| S055 | Could you show me how this works? |\n| S056 | I would like a table for two. |\n| S057 | Could I see the menu, please? |\n| S058 | What do you recommend? |\n| S059 | Does this contain mussels? |\n| S060 | I am allergic to mussels. |\n| S061 | Please do not add oysters. |\n| S062 | Does this contain added sugar? |\n| S063 | Could I have it without sugar? |\n| S064 | Could I have drinking water, please? |\n| S065 | Could I have a coffee without milk? |\n| S066 | I would like a beer, please. |\n| S067 | Could you make it less spicy? |\n| S068 | Can I order this to take away? |\n| S069 | Could I have the bill, please? |\n| S070 | Is service included in the bill? |\n| S071 | Where is the toilet? |\n| S072 | Is it customary to tip here? |\n| S073 | Should I take my shoes off? |\n| S074 | Is it okay to take a photograph here? |\n| S075 | Where am I allowed to smoke? |\n| S076 | Is it okay to drink alcohol here? |\n| S077 | Which bin should I use for this? |\n| S078 | Where should I queue? |\n| S079 | Is this area open to visitors? |\n| S080 | Is there anything I should avoid doing here? |\n| S081 | Do you offer laundry pickup and delivery? |\n| S082 | When will my laundry be returned? |\n| S083 | Where can I collect this parcel? |\n| S084 | How do I open this parcel locker? |\n| S085 | Where can I store my luggage? |\n| S086 | I need medical help. |\n| S087 | Please call an ambulance. |\n| S088 | Where is the nearest pharmacy? |\n| S089 | I have lost my passport. |\n| S090 | Please contact the police. |\n\n",
+  "travel_template": "\nPlease provide detailed information about [City Name], covering the following topics. Keep all prices in $USD:\n\n1. General Overview\n\t•\tWhat is the city known for?\n\t•\tUnique cultural, historical, or local characteristics.\n2. Neighborhoods and Atmosphere\n\t•\tChic, upscale areas.\n\t•\tGritty but safe and fun districts.\n\t•\tAreas to avoid and why (provide detailed reasoning for safety concerns).\n3. Social and Nightlife Scene\n\t•\tHow do locals meet new people and socialize?\n\t•\tDating norms or customs.\n\t•\tElectronic music scene:\nProvide detailed information including:\n\t•\tA list of 10 notable clubs with:\n\t•\tGoogle Maps location.\n\t•\tWebsite.\n\t•\tUpcoming events with specific dates.\n\t•\tInternational DJs scheduled to play soon.\n\t•\tFocus on personal safety: Are these venues safe, what precautions should I take, and what areas should be avoided around these clubs?\n4. Red Light Districts\n\t•\tIs there a recognized red-light district?\n\t•\tIs it regulated? What are cultural attitudes toward it?\n\t•\tAre these areas safe and walkable for visitors?\n\t•\tKnown scams or risks to watch out for in these areas.\n5. Alcohol Rules and Costs\n\t•\tRules surrounding alcohol: Legal drinking age, public consumption laws, etc.\n\t•\tTypical costs:\n\t•\tLocal beers (bottle/draft).\n\t•\tImported beers.\n\t•\tWine (glass/bottle).\n\t•\tCocktails.\n6. Cigarettes and Smoking Rules\n\t•\tCost of cigarettes.\n\t•\tWhere smoking is allowed or restricted.\n7. Local Costs\n\t•\tAccommodations: Average costs for budget, mid-range, and upscale options.\n\t•\tDaily Budget: Estimated costs for budget, mid-range, and luxury travelers.\n\t•\tGroceries: Prices for basic staples (e.g., bread, milk, eggs, rice).\n\t•\tMiscellaneous costs: Coffee, taxis, gym memberships, laundry services, etc.\n8. Food and Dining\n\t•\tLocal Cuisine: Iconic dishes, specialties, or regional flavors.\n\t•\tSandwiches: Popular local options and their costs.\n\t•\tBeer: Average price of local and imported beers (draft, bottle, or can).\n\t•\tDinner Costs: Price ranges for budget, mid-range, and upscale dining.\n\t•\tStreet Food and Fast Food: Popular affordable options.\n\t•\tUnique Experiences:\n\t•\tFood traditions or festivals.\n\t•\tNotable markets.\n\t•\tRecommended culinary tours.\n9. Local Tips for Visitors\n\t•\tImportant norms or etiquette to follow.\n\t•\tKnown scams or risks tourists should be aware of.\n\t•\tFocus on personal safety based on past experiences.\n\t•\tHow to avoid being blindsided by unexpected situations.\n10. Event Calendar\n\t•\tUpcoming holidays, festivals, or public events:\n\t•\tProvide specific dates and descriptions of the events.\n\t•\tNote whether these events may impact safety, transportation, or accessibility.\n11. Transportation\n\t•\tBest ways to get around the city:\n\t•\tPublic transportation options (buses, metros, ferries).\n\t•\tRide-sharing services (Uber, local alternatives).\n\t•\tCar rentals (availability, costs, and safety of driving).\n\t•\tWalkability:\n\t•\tAre key areas safe to explore on foot, day or night?\n12. Additional Recommendations\n\t•\tUnique experiences or hidden gems in the city.\n\t•\tSpecific suggestions for solo travelers or groups:\n\t•\tSafe areas to meet new people.\n\t•\tActivities tailored for solo safety or group fun.\n13. Safety\n\t•\tWalking safety:\n\t•\tIs it safe to walk alone at night?\n\t•\tWhen and where is it not safe to walk alone?\n\t•\tCrime rates comparison:\nProvide a table comparing petty crimes and homicides in the city with other cities, such as London, Edinburgh, and San Francisco.\nCity\nPetty Crime Index\nHomicide Rate (per 100,000)\n[City Name]\n\n\t•\tUnique crimes to watch for:\n\t•\tSpecific risks that might catch travelers off guard (e.g., drink spiking, card skimming, scams).\n14. Culture and People\n\t•\tLocal Dress Code:\n\t•\tAppropriate attire for beaches, casual outings, and upscale venues.\n\t•\tHow conservative is the local culture?\n\t•\tLanguages Spoken:\n\t•\tDominant language(s) and level of English fluency.\n\t•\tCommon phrases or communication tips.\n\t•\tCultural Taboos:\n\t•\tActions or behaviors to avoid.\n\t•\tCustoms to observe, such as dining etiquette or greetings.\n15. Health and Safety\n\t•\tHealth Risks:\n\t•\tCommon concerns (e.g., water safety, mosquito-borne diseases).\n\t•\tAvailability and cost of healthcare for travelers.\n\t•\tEmergency Contacts:\n\t•\tLocal numbers for police, ambulance, and fire services.\n\t•\tEmbassies or consulates for your nationality.\n16. Technology and Connectivity\n\t•\tInternet and Mobile:\n\t•\tQuality and reliability of Wi-Fi.\n\t•\tBest SIM card providers for tourists (pricing and network strength).\n\t•\tPayment Systems:\n\t•\tCard acceptance vs. cash dependency.\n\t•\tPopular mobile payment apps (if any).\n17. Shopping and Souvenirs\n\t•\tShopping Districts:\n\t•\tRecommended malls, markets, and boutique shops.\n\t•\tLocal Products:\n\t•\tUnique souvenirs or specialties to bring home.\n18. Outdoor and Activities\n\t•\tAdventure Sports:\n\t•\tSurfing, diving, paragliding, or other options.\n\t•\tSafety tips for each activity.\n\t•\tParks and Nature Reserves:\n\t•\tTop natural attractions with entry fees or guided tours.\n\t•\tDay Trips:\n\t•\tSuggested nearby towns or destinations.\n19. Weather and Best Times to Visit\n\t•\tSeasonal Differences:\n\t•\tWeather patterns by season.\n\t•\tBest months for travel, festivals, or outdoor activities.\n\t•\tPacking Suggestions:\n\t•\tSeasonal clothing recommendations.\n\t•\tGear to prepare for local conditions (e.g., sunscreen, waterproof gear).\n20. Legal and Political Environment\n\t•\tLocal Laws:\n\t•\tUnexpected restrictions or laws (e.g., drugs, photography, drones).\n\t•\tPenalties for common infractions.\n\t•\tPolitical Climate:\n\t•\tCurrent stability or unrest.\n\t•\tPolitical impacts on daily life or travel plans.\n21. Social and Demographic Context\n\t•\tInclusivity and Diversity:\n\t•\tAttitudes toward LGBTQ+ travelers.\n\t•\tSafety for solo female travelers or specific demographics.\n\t•\tEconomic Disparities:\n\t•\tVisible wealth gaps and their effects on crime or interactions.\n22. Sustainability\n\t•\tEco-friendly Practices:\n\t•\tRecycling, eco-conscious tourism, or local green initiatives.\n\t•\tSustainable Tourism:\n\t•\tRecommendations for eco-lodges, green tours, or low-impact activities.\n23. Transportation Enhancements\n\t•\tTravel Passes or Cards:\n\t•\tDiscounts for public transport or tourist cards.\n\t•\tRoad Trips:\n\t•\tRenting vehicles, road conditions, scenic routes, and parking advice.\n24. Local Festivals and Customs\n\t•\tCultural Events:\n\t•\tUnique traditions, ceremonies, or niche holidays (with dates).\n\t•\tMusic and Arts:\n\t•\tRecommendations for live music, art galleries, and local performers.\n25. Travel Etiquette\n\t•\tTipping Norms:\n\t•\tExpected percentages for dining, taxis, and services.\n\t•\tPhotography Rules:\n\t•\tRestricted locations or scenarios where photography is discouraged.",
+  "packs": [
+    {
+      "code": "JP",
+      "country": "Japan",
+      "aliases": [
+        "日本"
+      ],
+      "locales": [
+        "ja-JP"
+      ],
+      "guidance_topics": [
+        "locks and appliance controls",
+        "transport ticketing",
+        "greetings",
+        "rubbish separation",
+        "parcel pickup"
+      ],
+      "guidance_status": "requires_source_retrieval"
+    },
+    {
+      "code": "VN",
+      "country": "Vietnam",
+      "aliases": [
+        "Viet Nam",
+        "Việt Nam"
+      ],
+      "locales": [
+        "vi-VN"
+      ],
+      "guidance_topics": [
+        "accommodation controls",
+        "transport",
+        "payments",
+        "greetings",
+        "dining conventions"
+      ],
+      "guidance_status": "requires_source_retrieval"
+    }
+  ]
+}

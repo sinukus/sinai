@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Travel helper</title>
+<style>body{font:18px system-ui;max-width:760px;margin:40px auto;padding:20px;background:#f6f5f1;color:#202925}textarea{box-sizing:border-box;width:100%;font:inherit;padding:14px}button{font:inherit;padding:10px 22px;margin:10px 0}article{white-space:pre-wrap;background:white;padding:18px;margin:12px 0;border-radius:12px}small{display:block;color:#53645c}label{display:inline-block;margin:8px 12px 8px 0;font-size:16px}select{font:inherit;padding:8px}.actions{display:flex;gap:8px;flex-wrap:wrap}button{border:0;border-radius:10px;background:#1b5547;color:white;min-height:48px;cursor:pointer}button:disabled{opacity:.5}#voice{background:#dcebe5;color:#1b5547}#stop{background:#e8e5dd;color:#202925}textarea{border:1px solid #b9c6bc;border-radius:12px}form{position:sticky;bottom:0;background:#f6f5f1;padding-top:12px}article[data-role="user"]{background:#e0eee7;margin-left:30px}#voice-status{font-size:14px;min-height:22px}@media(max-width:600px){body{margin:0;padding:16px;font-size:17px}h1{font-size:28px}article{padding:14px}}button:focus-visible,textarea:focus-visible{outline:3px solid #d88f25;outline-offset:3px}</style>
+<h1>Travel helper</h1><p>Start with “I am going to Japan” or “I am going to Vietnam”, then ask about local customs or unfamiliar controls.</p><small>Local model · Offline speech depends on this browser and installed voices.</small>
+<p id="voice-status" role="status">Type a message, or tap Voice to transcribe on device.</p>
+<label>Speaking language <select id="locale"><option value="en-US">English</option><option value="ja-JP">Japanese</option><option value="vi-VN">Vietnamese</option></select></label>
+<label><input type="checkbox" id="speak" checked> Read replies aloud</label><section id="conversation" aria-live="polite"></section><form><textarea aria-label="Your message" required rows="3"></textarea><div class="actions"><button id="voice" type="button">🎙 Voice</button><button id="send">Send</button><button id="stop" type="button">Stop audio</button></div></form>
+<script>
+const form=document.querySelector('form'), input=document.querySelector('textarea'), button=document.querySelector('#send'), log=document.querySelector('#conversation');
+function entry(text){const e=document.createElement('article');e.textContent=text;log.append(e);return e;}
+form.onsubmit=async(e)=>{e.preventDefault();const text=input.value;entry(text).dataset.role='user';input.value='';button.disabled=true;const output=entry('');
+try{const response=await fetch('/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text})});if(!response.ok)throw Error('Request failed: '+response.status);
+const reader=response.body.getReader(),decoder=new TextDecoder();let pending='';
+function event(line){if(!line)return;const value=JSON.parse(line);if(value.type==='done' && document.querySelector('#speak').checked)readReply(output.textContent);if(value.type==='delta')output.textContent+=value.text;if(value.type==='error')output.textContent+='\nError: '+value.text;if(value.type==='destination')output.textContent='Prepared '+value.state.destination.country+' locally. Travel and English language templates are ready. Speech and translation resources still need native adapters.';}
+while(true){const {value,done}=await reader.read();pending+=decoder.decode(value,{stream:!done});let split;while((split=pending.indexOf('\n'))>=0){event(pending.slice(0,split));pending=pending.slice(split+1);}if(done){event(pending);break;}}
+}catch(error){output.textContent+='\n'+error.message;}finally{button.disabled=false;input.focus();}};
+
+const voice=document.querySelector('#voice'), status=document.querySelector('#voice-status'), locale=document.querySelector('#locale');
+let recognition=null, preparing=false;
+function readReply(text){
+  if(!text.trim())return;
+  if(!window.speechSynthesis){status.textContent='Speech playback is unavailable in this browser.';return;}
+  const voices=speechSynthesis.getVoices().filter(v=>v.localService && v.lang.split('-')[0]===locale.value.split('-')[0]);
+  if(!voices.length){status.textContent='No installed local voice for this language. Install an OS voice, then tap Read aloud.';return;}
+  speechSynthesis.cancel();const utterance=new SpeechSynthesisUtterance(text);utterance.voice=voices[0];utterance.lang=voices[0].lang;
+  utterance.onerror=()=>{status.textContent='Voice playback failed. The text remains available.';};speechSynthesis.speak(utterance);
+}
+const read=document.createElement('button');read.type='button';read.textContent='Read aloud';document.querySelector('.actions').append(read);
+read.onclick=()=>{const answers=[...log.querySelectorAll('article')].filter(e=>e.dataset.role!=='user');if(answers.length)readReply(answers.at(-1).textContent);};
+document.querySelector('#stop').onclick=()=>{recognition?.abort();window.speechSynthesis?.cancel();};
+voice.onclick=async()=>{
+  if(recognition){recognition.stop();return;}if(preparing)return;
+  const Engine=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!Engine){status.textContent='Offline transcription is unavailable in this browser. You can still type.';return;}
+  const candidate=new Engine();
+  if(!('processLocally' in candidate)||!Engine.available){status.textContent='This browser cannot guarantee on-device transcription. Use typing; online recognition has not been enabled.';return;}
+  preparing=true;voice.disabled=true;
+  try{
+    let available=await Engine.available({langs:[locale.value],processLocally:true});
+    if(available==='downloadable'||available==='downloading'){
+      if(!Engine.install)throw Error('This browser cannot install the speech pack.');
+      status.textContent='Preparing the offline speech pack…';
+      if(!await Engine.install({langs:[locale.value],processLocally:true}))throw Error('Offline speech pack installation did not complete.');
+      available=await Engine.available({langs:[locale.value],processLocally:true});
+    }
+    if(available!=='available')throw Error('Offline transcription is unavailable for this language.');
+    candidate.processLocally=true;candidate.lang=locale.value;candidate.interimResults=true;candidate.continuous=false;
+    const original=input.value;candidate.onresult=event=>{let transcript='';for(let i=0;i<event.results.length;i++)transcript+=event.results[i][0].transcript;input.value=original+(original?' ':'')+transcript;};
+    candidate.onerror=event=>{status.textContent='Transcription stopped: '+event.error+'. You can edit or type your message.';};
+    candidate.onend=()=>{recognition=null;voice.textContent='🎙 Voice';if(status.textContent==='Listening… tap Voice to stop.')status.textContent='Review the transcription, then tap Send.';};
+    window.speechSynthesis?.cancel();recognition=candidate;candidate.start();voice.textContent='Stop recording';status.textContent='Listening… tap Voice to stop.';
+  }catch(error){recognition=null;status.textContent=error.message;}finally{preparing=false;voice.disabled=false;}
+};
+</script></html>

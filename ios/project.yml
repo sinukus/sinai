@@ -1,0 +1,19 @@
+name: SinaiEcho
+options:
+  bundleIdPrefix: com.sinukus
+  deploymentTarget:
+    iOS: '17.0'
+targets:
+  SinaiEcho:
+    type: application
+    platform: iOS
+    sources: [SinaiEcho]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sinukus.sinai.echo
+        TARGETED_DEVICE_FAMILY: '1,2'
+        SWIFT_VERSION: '5.0'
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_NSMicrophoneUsageDescription: Record speech for the on-device echo test.
+        INFOPLIST_KEY_NSSpeechRecognitionUsageDescription: Transcribe speech on this device for the echo test.
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES

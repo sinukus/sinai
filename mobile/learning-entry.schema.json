@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Sin.AI language learning entry",
+  "type": "object",
+  "required": [
+    "id",
+    "source_text",
+    "source_language",
+    "target_language",
+    "translation",
+    "romanization",
+    "phonetics",
+    "mnemonic",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "source_text": {
+      "type": "string"
+    },
+    "source_language": {
+      "type": "string",
+      "description": "BCP 47 language tag"
+    },
+    "target_language": {
+      "type": "string",
+      "description": "BCP 47 language tag, including region where relevant"
+    },
+    "translation": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Native-script translation"
+    },
+    "romanization": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Standard romanization for non-Latin scripts; preserve meaningful diacritics"
+    },
+    "phonetics": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "ipa": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "english_respelling": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "notes": {
+          "type": "string",
+          "description": "Tone, stress, vowel length, and sounds without a direct English equivalent"
+        }
+      },
+      "required": [
+        "ipa",
+        "english_respelling",
+        "notes"
+      ]
+    },
+    "mnemonic": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Optional familiar-sound helper for pronunciation; not an etymological claim and not required for initial delivery"
+    },
+    "status": {
+      "enum": [
+        "missing",
+        "machine_generated",
+        "reviewed"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "machine_generated",
+              "reviewed"
+            ]
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "translation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "phonetics": {
+            "type": "object",
+            "properties": {
+              "ipa": {
+                "type": "string",
+                "minLength": 1
+              },
+              "english_respelling": {
+                "type": "string",
+                "minLength": 1
+              },
+              "notes": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "ipa",
+              "english_respelling",
+              "notes"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

@@ -11,3 +11,7 @@ The core design goals are:
 - a clean path toward Android and other clients
 
 See `docs/ARCHITECTURE.md` and `docs/ROADMAP.md` for the current design and next steps.
+
+## Local travel app
+
+A runnable local text UI is available. See [travel setup](docs/TRAVEL.md) for installation, local model configuration, streaming behavior and remaining native-mobile limitations.
