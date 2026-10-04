@@ -21,3 +21,7 @@ For installation directly on iPad through TestFlight, an Apple Developer members
 ## Acceptance
 
 Both apps must transcribe and play back a short sentence with airplane mode enabled and Wi-Fi disabled. Denied microphone permissions, absent offline recognition, absent voice data, Stop audio, leaving the app, and a second recording must behave clearly. Native compilation, installation and actual device offline behavior are separate validation stages. Do not treat source inspection or passing backend tests as proof of mobile operation.
+
+## Native template integration
+
+Both apps now bundle the existing travel template, the full 180-entry English language template, and JP/VN destination metadata. Open Travel and language resources to read templates offline and select a destination; the destination selection is saved locally. Bundles are identical on both platforms. These are source-language entries, not translated language packs. Model routing, AI Court, conversation memory, translation engines, and target-language speech selection remain unconnected.

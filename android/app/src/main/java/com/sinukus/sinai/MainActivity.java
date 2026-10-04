@@ -25,7 +25,7 @@ public class MainActivity extends Activity implements RecognitionListener {
  private final Locale language = Locale.US;
  @Override public void onCreate(Bundle state) {
   super.onCreate(state);
-  LinearLayout layout = new LinearLayout(this); layout.setOrientation(1); layout.setPadding(32,48,32,32);
+  LinearLayout layout = new LinearLayout(this); layout.setOrientation(LinearLayout.VERTICAL); layout.setPadding(32,48,32,32);
   TextView title = new TextView(this); title.setText("Sin.AI · Offline echo · English (US)"); title.setTextSize(22); layout.addView(title);
   status = new TextView(this); status.setText("Initializing local speech…"); layout.addView(status);
   transcript = new EditText(this); transcript.setHint("Your words appear here. You can edit them."); transcript.setMinLines(4); layout.addView(transcript);
