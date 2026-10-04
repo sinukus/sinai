@@ -13,7 +13,18 @@ from aicourt.server import TravelSession, make_server
 def test_file_memory_persists_without_database(tmp_path):
     path = tmp_path / 'memory.json'
     LocalMemory(path).put('country', 'JP')
-    assert LocalMemory(path).get('country') == 'JP'
+    memory = LocalMemory(path)
+    assert memory.get('country') == 'JP'
+    assert memory.get('missing', 'fallback') == 'fallback'
+    memory.append('recent', 'one', limit=2)
+    memory.append('recent', 'two', limit=2)
+    assert memory.append('recent', 'three', limit=2) == ['two', 'three']
+    snapshot = memory.snapshot()
+    snapshot['country'] = 'XX'
+    assert memory.get('country') == 'JP'
+    assert memory.forget('country') is True
+    assert memory.get('country') is None
+    assert memory.forget('country') is False
     legacy = tmp_path / 'old.db'
     legacy.write_bytes(b'untouched')
     with pytest.raises(ValueError):
