@@ -11,7 +11,7 @@
   "translation": {"type":["string","null"],"description":"Native-script translation"},
   "romanization": {"type":["string","null"],"description":"Standard romanization for non-Latin scripts; preserve meaningful diacritics"},
   "phonetics": {"type":["object","null"],"properties":{"ipa":{"type":["string","null"]},"english_respelling":{"type":["string","null"]},"notes":{"type":"string","description":"Tone, stress, vowel length, and sounds without a direct English equivalent"}},"required":["ipa","english_respelling","notes"]},
-  "mnemonic": {"type":["string","null"],"description":"Memory aid linked to pronunciation and meaning; not an etymological claim"},
+  "mnemonic": {"type":["string","null"],"description":"Optional familiar-sound helper for pronunciation; not an etymological claim and not required for initial delivery"},
   "status": {"enum":["missing","machine_generated","reviewed"]},
   "sources": {"type":"array","items":{"type":"string"}}
  },

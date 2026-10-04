@@ -35,3 +35,5 @@ Translate transcript / template opens English-to-Japanese translation and allows
 The learning entry contract is `mobile/learning-entry.schema.json`: native-script text, standard romanization where applicable, IPA, English-friendly phonetic respelling, tone/stress/vowel-length notes, and a mnemonic. This applies to every target language, not only Japanese. Keep regional pronunciation distinctions. Romanization alone is not sufficient pronunciation guidance. Mnemonics are memory aids, not factual etymologies.
 
 Translation engine output does not populate these fields reliably. Store unavailable fields as missing rather than inventing pronunciation. Reviewed offline learning packs or a separately validated generation pipeline are still needed. This commit defines the contract; it does not claim the pronunciation/mnemonic pipeline is implemented.
+
+Target selection: Android lists ML Kit's supported target languages; iOS offers a selection of common travel languages, with actual availability determined by Apple on the device. Input remains English in this iteration. Pronunciation helper words are optional and deferred; readable phonetics remain planned.
