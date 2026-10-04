@@ -2,7 +2,19 @@
 
 Recreated on 2026-10-05 from Stephen Wilson's confirmed requirements; this is a new canonical candidate, not a recovered historical copy.
 
-Use for any destination language. Preserve all IDs and counts. Add target-language text, practical pronunciation, and literal meaning when it helps explain a difference. Keep simple items short. Adapt politeness to local use without changing intent. Explain region-specific variants rather than assuming one country has one language. Allergy entries must retain their precise meaning.
+Use for any destination language. Preserve all IDs and counts. Every completed language entry must include pronunciation help; this is not optional for Latin-script languages and is especially important for non-Latin scripts. Keep simple items short. Adapt politeness to local use without changing intent. Explain region-specific variants rather than assuming one country has one language. Allergy entries must retain their precise meaning.
+
+## Pronunciation requirements
+
+For every translated entry provide:
+- native-script translation;
+- standard romanization/transliteration when the target uses a non-Latin script (preserve meaningful diacritics, tone marks, vowel length, and other contrastive information);
+- IPA;
+- a practical English-readable phonetic respelling;
+- a short pronunciation note when stress, tone, vowel length, or a sound without a direct English equivalent matters;
+- an optional familiar-sound/helper-word mnemonic when it genuinely makes pronunciation easier. Do not invent an etymology and do not force a mnemonic when none is useful.
+
+Romanization and English-readable phonetics are different fields: never substitute one for the other. For Latin-script languages, romanization may be omitted when redundant, but IPA and the practical phonetic respelling remain required. Do not replace unfamiliar sounds with materially different English sounds merely to make the cue easier.
 
 ## 30 basic words
 
